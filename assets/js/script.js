@@ -43,10 +43,11 @@ $(function () {
 
 
   
-  //display planner table 
+  //display planner table
   $("#planner").html (timeTableHtml);
 
-
+  //display current date
+  $("#current-day").html (currentDayhtml);
 
   //set click event for save buttons
   $(".saveBtn").on('click', function (event) {
@@ -113,7 +114,7 @@ $(function () {
     $('#tips').html ("Plans has been saved");
 
 
-    
+
     setTimeout(function() { 
       $('#tips').html ("");
   }, 2000);
