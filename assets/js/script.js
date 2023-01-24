@@ -6,7 +6,9 @@ $(function () {
 
 
 
-  let currentHour = dayjs().hour() + 1;
+  let currentHour = dayjs().hour();
+
+
   let currentDayhtml = dayjs().format('dddd[, ]MMMM D');
   
   //currentHour = 12; //test
@@ -70,10 +72,12 @@ $(function () {
 
     planDataRaw = localStorage.getItem("planData");
 
-
+    
     if (planDataRaw)
     {
       planData = JSON.parse( planDataRaw );
+
+      console.log (planData);
       for (let i = 0; i < plannerTimeSlot.length; i++)
       {
       
@@ -84,6 +88,11 @@ $(function () {
         if ( thisTimeSlotData !== undefined)
         {
           $("#hour-" + plannerTimeSlot[i]).children ("textarea").val (thisTimeSlotData);
+        }
+        else
+        {
+          $("#hour-" + plannerTimeSlot[i]).children ("textarea").val ('');
+
         }
       }
     }
