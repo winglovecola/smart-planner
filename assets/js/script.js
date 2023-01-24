@@ -2,12 +2,14 @@ $(function () {
 
   let timeTableHtml = "";
   let timeBlockClass = "";
+  let isCurrentHour = "";
+
 
 
   let currentHour = dayjs().hour() + 1;
   let currentDayhtml = dayjs().format('dddd[, ]MMMM D');
   
-  
+
   //time slot variables
   plannerTimeSlot = [9, 10, 11, 12, 13, 14, 15, 16, 17];
   plannerTimeSlot24h = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
@@ -26,18 +28,21 @@ $(function () {
     if (thisCurrentHour == currentHour)
     {
       timeBlockClass = "present";
+      isCurrentHour = "<div class='current-hour-div'>Current Hour</div>";
     }
     else if (thisCurrentHour > currentHour)
     {
       timeBlockClass = "future";
+      isCurrentHour = "";
     }
     else
     {
       timeBlockClass = "past";
+      isCurrentHour = "";
     }
 
 
-    timeTableHtml += '<div id="hour-' + thisCurrentHour + '" class="row time-block ' + timeBlockClass + '"><div class="col-2 col-md-1 hour text-center py-3">' + plannerTimeSlot24h[i] + '</div><textarea class="col-8 col-md-10 description" rows="3"></textarea><button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button></div>';
+    timeTableHtml += '<div id="hour-' + thisCurrentHour + '" class="row time-block ' + timeBlockClass + '"><div class="col-2 col-md-1 hour text-center py-3">' + plannerTimeSlot24h[i] + isCurrentHour + '</div><textarea class="col-8 col-md-10 description" rows="3"></textarea><button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button></div>';
     
   }
 
