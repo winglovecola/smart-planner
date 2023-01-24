@@ -1,20 +1,23 @@
-
 $(function () {
 
   let timeTableHtml = "";
-  let currentHour = dayjs().hour() + 1;
-
-  let currentDayhtml = dayjs().format('dddd[, ]MMMM D');
   let timeBlockClass = "";
+
+
+  let currentHour = dayjs().hour() + 1;
+  let currentDayhtml = dayjs().format('dddd[, ]MMMM D');
   
+  
+  //time slot variables
   plannerTimeSlot = [9, 10, 11, 12, 13, 14, 15, 16, 17];
   plannerTimeSlot24h = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+
 
   let planDataRaw = {};
   let plannerData = {};
   
-  $("#current-day").html (currentDayhtml);
 
+  //create time table
   for (let i = 0; i < plannerTimeSlot.length; i++)
   {
     
@@ -50,11 +53,13 @@ $(function () {
     savePlan ();
   });
 
+
+
   //load plan data
   loadPlanData ();
 
 
-
+  //load plan data function
   function loadPlanData () {
 
     planDataRaw = localStorage.getItem("planData");
@@ -79,7 +84,7 @@ $(function () {
   }
 
 
-
+  //save plan data function
   function savePlan () {
 
     plannerData = {};
@@ -101,11 +106,14 @@ $(function () {
       
     });
     
-    //save to local storage in browser
 
+
+    //save to local storage in browser
     localStorage.setItem("planData", JSON.stringify(plannerData));
     $('#tips').html ("Plans has been saved");
 
+
+    
     setTimeout(function() { 
       $('#tips').html ("");
   }, 2000);
