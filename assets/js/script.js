@@ -9,7 +9,7 @@ $(function () {
   let currentHour = dayjs().hour() + 1;
   let currentDayhtml = dayjs().format('dddd[, ]MMMM D');
   
-  //currentHour = 12; test
+  //currentHour = 12; //test
   //time slot variables
   plannerTimeSlot = [9, 10, 11, 12, 13, 14, 15, 16, 17];
   plannerTimeSlot24h = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
