@@ -77,12 +77,12 @@ $(function () {
     {
       planData = JSON.parse( planDataRaw );
 
-      console.log (planData);
+      //console.log (planData);
       for (let i = 0; i < plannerTimeSlot.length; i++)
       {
       
         let thisTimeSlotData = planData["hour-" + plannerTimeSlot[i]];
-        console.log (thisTimeSlotData)
+        //console.log (thisTimeSlotData)
 
 
         if ( thisTimeSlotData !== undefined)
@@ -106,8 +106,8 @@ $(function () {
     
     $('#planner .description').each(function () {
       
-      console.log ($(this).parent ().attr ('id'));
-      console.log ($(this).val ());
+      //console.log ($(this).parent ().attr ('id'));
+      //console.log ($(this).val ());
       
 
 
